@@ -12,8 +12,7 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.2.0",
-    "styled-reset": "^2.0.12",
-    "thunk": "^0.0.1"
+    "styled-reset": "^2.0.12"
   },
   "scripts": {
     "start": "PORT=3333 react-scripts start",
