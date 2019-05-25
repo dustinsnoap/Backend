@@ -6,7 +6,7 @@ import {ThemeProvider} from 'styled-components'
 import App from './components/app'
 import store from './config/store'
 import GlobalStyle from './design/global_style'
-import light from './design/theme/light'
+import light from './design/themes/light'
 
 const root = document.getElementById('root')
 ReactDOM.render(
