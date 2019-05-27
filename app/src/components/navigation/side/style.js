@@ -48,27 +48,12 @@ export default Styled.div`
         grid-auto-flow: row;
         grid-gap: 1rem;
         height: fit-content;
-        .database {
+        .tables {
+            cursor: pointer;
             display: grid;
             grid-auto-flow: row;
-            grid-gap: 0.5rem;
-            overflow: hidden;
-            header {
-                cursor: pointer;
-                display: flex;
-                margin: 0;
-            }
-            .tables {
-                cursor: pointer;
-                display: grid;
-                grid-auto-flow: row;
-                grid-gap: 0.5rem;
-                height: fit-content;
-                max-height: 0;
-                transition: max-height 420ms ease-in-out;
-                &.open {max-height: 200px}
-                .table {text-indent: 40px}
-            }
+            grid-gap: 0.75rem;
+            // .table {text-indent: 40px}
         }
     }
 `

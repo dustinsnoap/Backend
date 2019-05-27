@@ -12,6 +12,6 @@ server.use(helmet())
 server.use(cors())
 
 //ROUTES
-server.use('/api/tables', tableRoutes)
+server.use('/tables', tableRoutes)
 
 module.exports = server

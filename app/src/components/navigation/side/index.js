@@ -1,10 +1,16 @@
 import React, {Component} from 'react'
-// import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+
 import Wrapper from './style'
+
+import {get_tables} from '../../../actions/tables'
 
 class SideNav extends Component {
     //toggles 'open' class on tables node when it's header is clicked
-    h_open_table = e => e.currentTarget.nextSibling.classList.toggle('open')
+    // h_open_table = e => e.currentTarget.nextSibling.classList.toggle('open')
+    componentDidMount = () => {
+        this.props.get_tables()
+    }
     render = () =>
         <Wrapper>
             <header>
@@ -25,30 +31,23 @@ class SideNav extends Component {
                 </div>
             </header>
             <div className='content'>
-                <div className='database'>
-                    <header onClick={this.h_open_table}>
-                        <figure>{'{=}'}</figure>
-                        <pre>dbName</pre>
-                    </header>
-                    <div className='tables'>
-                        <pre className='table'>tableName</pre>
-                        <pre className='table'>tableName</pre>
-                        <pre className='table'>tableName</pre>
-                    </div>
-                </div>
-                <div className='database'>
-                    <header onClick={this.h_open_table}>
-                        <figure>{'{=}'}</figure>
-                        <pre>dbName</pre>
-                    </header>
-                    <div className='tables'>
-                        <pre className='table'>tableName</pre>
-                        <pre className='table'>tableName</pre>
-                        <pre className='table'>tableName</pre>
-                    </div>
+                <div className='tables'>
+                    {this.props.tables.map(table =>
+                        <pre className='table' key={table}>{table}</pre>    
+                    )}
                 </div>
             </div>
         </Wrapper>
 }   
 
-export default SideNav
+const mapStateToProps = state => {
+    console.log(state.tables.tables)
+    return {
+        tables: state.tables.tables,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {get_tables,
+    })(SideNav)
