@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import Wrapper from './style'
 
 import Options from './options'
+import Table from './table'
 
 class Main extends Component {
     componentDidMount = () => {
@@ -14,7 +15,7 @@ class Main extends Component {
             {/* header */}
             <Options />
             {/* message */}
-            {/* table */}
+            <Table />
         </Wrapper>
 }
 
