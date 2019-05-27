@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     #root {
         height: 100%;
     }
-    input {
+    button, input, select {
         border: 0;
         outline: none;
     }

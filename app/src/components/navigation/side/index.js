@@ -32,16 +32,13 @@ class SideNav extends Component {
             </header>
             <div className='content'>
                 <div className='tables'>
-                    {this.props.tables.map(table =>
-                        <pre className='table' key={table}>{table}</pre>    
-                    )}
+                    {this.props.tables.map(table => <pre className='table' key={table}>{table}</pre>)}
                 </div>
             </div>
         </Wrapper>
 }   
 
 const mapStateToProps = state => {
-    console.log(state.tables.tables)
     return {
         tables: state.tables.tables,
     }

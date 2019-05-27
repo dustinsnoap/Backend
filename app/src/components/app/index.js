@@ -3,12 +3,13 @@ import {BrowserRouter as Router} from 'react-router-dom'
 
 import Wrapper from './style'
 import SideNav from '../navigation/side'
+import Main from '../table'
 
 const App = () =>
     <Wrapper className='app'>
         <Router>
             <SideNav />
-            <h1>Main App</h1>
+            <Main />
             {/* footer? */}
         </Router>
     </Wrapper>
