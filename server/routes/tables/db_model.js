@@ -36,13 +36,22 @@ const get_tables = async () => {
         return err
     }
 }
+const get_table = async (table_name) => {
+    try {
+        return await(db(table_name))
+    }
+    catch (err) {
+        return err
+    }
+}
 
 module.exports = {
     get_tables,
+    get_table,
 }
 
 const execute = async () => {
-    console.log(await get_tables())
+    console.log(await get_table('users'))
 }
 
 // execute()
