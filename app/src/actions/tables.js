@@ -6,10 +6,6 @@ export const GET_TABLE = 'GET_TABLE'
 export const GET_TABLES = 'GET_TABLES'
 export const ADD_TABLE = 'ADD_TABLE'
 export const REMOVE_TABLE = 'REMOVE_TABLE'
-// export const 
-// export const 
-// export const 
-// export const 
 export const GET_TABLE_SUCCESS = 'GET_TABLE_SUCCESS'
 export const GET_TABLES_SUCCESS = 'GET_TABLES_SUCCESS'
 export const TABLE_FAIL = 'TABLE_FAIL'
