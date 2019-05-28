@@ -15,7 +15,7 @@ class Main extends Component {
     }
     render = () => 
         <Wrapper className='main'>
-            <Header />
+            <Header table={this.props.table}/>
             <Options />
             {/* message */}
             <Table table={this.props.table}/>

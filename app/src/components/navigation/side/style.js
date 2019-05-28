@@ -44,16 +44,28 @@ export default Styled.div`
     }
     .content {
         display: grid;
-        font-size: 1.6rem;
         grid-auto-flow: row;
         grid-gap: 1rem;
         height: fit-content;
         .tables {
             cursor: pointer;
-            display: grid;
-            grid-auto-flow: row;
-            grid-gap: 0.75rem;
-            // .table {text-indent: 40px}
+            display: flex;
+            flex-direction: column;
+            transform: translateX(-1rem);
+            width: calc(100% + 2rem);
+            .table {
+                background-color: transparent;
+                color: #ccc;
+                cursor: pointer;
+                font-size: 1.6rem;
+                height: 25px;
+                text-align: left;
+                width: 100%;
+                &:hover {
+                    background-color: #ccc;
+                    color: #222;
+                }
+            }
         }
     }
 `

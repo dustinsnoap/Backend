@@ -3,14 +3,13 @@ import {connect} from 'react-redux'
 
 import Wrapper from './style'
 
-import {get_tables} from '../../../actions/tables'
+import {get_table, get_tables} from '../../../actions/tables'
 
 class SideNav extends Component {
     //toggles 'open' class on tables node when it's header is clicked
     // h_open_table = e => e.currentTarget.nextSibling.classList.toggle('open')
-    componentDidMount = () => {
-        this.props.get_tables()
-    }
+    componentDidMount = () => this.props.get_tables()
+    h_get_table = e => this.props.get_table(e.target.name)
     render = () =>
         <Wrapper>
             <header>
@@ -31,20 +30,25 @@ class SideNav extends Component {
             </header>
             <div className='content'>
                 <div className='tables'>
-                    {this.props.tables.map(table => <pre className='table' key={table}>{table}</pre>)}
+                    {this.props.tables.map(table =>
+                        <button
+                            className='table'
+                            name={table}
+                            onClick={this.h_get_table}
+                            key={table}
+                        >
+                            {table}
+                        </button>
+                    )}
                 </div>
             </div>
         </Wrapper>
 }   
 
-const mapStateToProps = state => {
-    // console.log(state.tables.tables)
-    return {
-        tables: state.tables.tables,
-    }
-}
+const mapStateToProps = state => {return {tables: state.tables.tables}}
 
 export default connect(
-    mapStateToProps,
-    {get_tables,
+    mapStateToProps,{
+    get_table,
+    get_tables,
     })(SideNav)
