@@ -9,6 +9,7 @@ import {
 const initState = {
     tables: [],
     table: [],
+    current_table: '',
     fetching: false,
     error: null,
 }
@@ -34,6 +35,7 @@ export const tablesReducer = (state = initState, action) => {
                 ...state,
                 error: null,
                 tables: action.payload,
+                // current_table: action.payload.current_table,
                 fetching: false,
             }
         case TABLE_FAIL:
