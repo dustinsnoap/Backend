@@ -3,26 +3,32 @@ import {connect} from 'react-redux'
 
 import Wrapper from './style'
 
+import Header from './header'
 import Options from './options'
 import Table from './table'
 
+import {get_table} from '../../actions/tables'
+
 class Main extends Component {
     componentDidMount = () => {
-        //db calls
+        this.props.get_table('users')
     }
     render = () => 
         <Wrapper className='main'>
-            {/* header */}
+            <Header />
             <Options />
             {/* message */}
-            <Table />
+            <Table table={this.props.table}/>
         </Wrapper>
 }
 
 const mapStateToProps = state => {
-    return {}
+    return {
+        table: state.tables.table,
+    }
 }
 
 export default connect(
     mapStateToProps,
-    {})(Main)
+    {get_table,
+    })(Main)

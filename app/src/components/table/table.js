@@ -5,53 +5,43 @@ class Table extends Component {
         super()
         this.state = {
             new_entry: {},
+            table: [],
         }
     }
+    componentDidMount = () => {
+        // console.log(this.props)
+    }
+    h_sort = e => console.log('sorting by', e.target.name, '...')
+    h_add_entry = () => console.log('adding new entry...')
+    h_add_field = () => console.log('adding new field...')
     render = () =>
         <div className='table'>
             <table>
-                <thead className='header'>
+                <thead className='table-header'>
                     <tr>
-                        <th><button>Add Entry</button></th>
-                        <th><button>id</button></th>
-                        <th><button>name</button></th>
-                        <th><button>age</button></th>
+                        <th><button onClick={this.h_add_entry}>Add Entry</button></th>
+                        {this.props.table.length
+                            ?   Object.keys(this.props.table[0]).map(key =>
+                                    <th key={key}>
+                                        <button name={key} onClick={this.h_sort}>{key}</button>
+                                    </th>
+                                )
+                            :   null
+                        }
                     </tr>
                 </thead>
                 <tbody className='entries'>
-                    <tr className='entry'>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>bob</td>
-                        <td>50</td>
-                    </tr>
-                    <tr className='entry'>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>bob</td>
-                        <td>50</td>
-                    </tr>
-                    <tr className='entry'>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>bob</td>
-                        <td>50</td>
-                    </tr>
-                    <tr className='entry'>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>bob</td>
-                        <td>50</td>
-                    </tr>
-                    <tr className='entry'>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>bob</td>
-                        <td>50</td>
-                    </tr>
+                    {this.props.table.map((entry, idx) =>
+                        <tr className='entry' key={idx}>
+                            <td>{idx + 1}</td>
+                            {Object.keys(entry).map(key =>
+                                <td key={key}>{entry[key]}</td>    
+                            )}
+                        </tr>
+                    )}
                 </tbody>
             </table>
-            <button>Add Field</button>
+            <button onClick={this.h_add_field}>Add Field</button>
         </div>
 }
 

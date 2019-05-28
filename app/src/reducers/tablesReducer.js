@@ -1,24 +1,35 @@
 import {
+    GET_TABLE,
     GET_TABLES,
-    TABLE_SUCCESS,
+    GET_TABLE_SUCCESS,
+    GET_TABLES_SUCCESS,
     TABLE_FAIL,
 } from '../actions/tables'
 
 const initState = {
     tables: [],
+    table: [],
     fetching: false,
     error: null,
 }
 
 export const tablesReducer = (state = initState, action) => {
     switch(action.type) {
+        case GET_TABLE:
         case GET_TABLES:
             return {
                 ...state,
                 error: null,
                 fetching: true,
             }
-        case TABLE_SUCCESS:
+        case GET_TABLE_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                table: action.payload,
+                fetching: false,
+            }
+        case GET_TABLES_SUCCESS:
             return {
                 ...state,
                 error: null,

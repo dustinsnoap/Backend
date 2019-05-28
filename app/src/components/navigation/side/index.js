@@ -15,7 +15,6 @@ class SideNav extends Component {
         <Wrapper>
             <header>
                 <div className='heading'>
-                    <pre className='host'>http://localhost:3333</pre>
                     <pre className='ver'>ver. 0.001 beta</pre>
                 </div>
                 <div className='stats'>
@@ -39,6 +38,7 @@ class SideNav extends Component {
 }   
 
 const mapStateToProps = state => {
+    // console.log(state.tables.tables)
     return {
         tables: state.tables.tables,
     }

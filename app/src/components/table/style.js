@@ -23,6 +23,27 @@ export default Styled.div`
     }
 
     // Specific Styles
+    .header {
+        display: grid;
+        grid-auto-flow: row;
+        grid-gap: 1rem;
+        .path {font-size: 1.8rem;}
+        .table-info {
+            display: flex;
+            justify-content: space-between;
+            .table-name {
+                font-size: 1.8rem;
+                font-weight: 1000;
+            }
+            .statistics {
+                font-size: 1.6rem;
+                display: grid;
+                grid-auto-flow: column;
+                grid-gap: 1rem;
+                .value {font-weight: 1000}
+            }
+        }
+    }
     .table-options {
         align-items: center;
         background-color: #222;
@@ -33,9 +54,9 @@ export default Styled.div`
     .table {
         display: flex;
         table {
+            width: 100%;
             font-size: 1.6rem;
-
-            .header {
+            .table-header {
                 background-color: #222;
                 color: #ccc;
                 cursor: pointer;
