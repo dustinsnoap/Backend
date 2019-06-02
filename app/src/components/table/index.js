@@ -3,9 +3,10 @@ import {connect} from 'react-redux'
 
 import Wrapper from './style'
 
-import Header from './header'
-import Options from './options'
+// import Header from './header'
+import Search from './search'
 import Table from './table'
+import MenuBar from './menubar'
 
 import {get_table} from '../../actions/tables'
 
@@ -15,8 +16,10 @@ class Main extends Component {
     }
     render = () => 
         <Wrapper className='main'>
-            <Header table={this.props.table}/>
-            <Options />
+            <MenuBar />
+            {/* <Header table={this.props.table}/> */}
+            <Search />
+            {/* <Options /> */}
             {/* message */}
             <Table table={this.props.table}/>
         </Wrapper>

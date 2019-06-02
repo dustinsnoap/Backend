@@ -3,6 +3,11 @@ import Styled from 'styled-components'
 export default Styled.div`
     display: flex;
     flex-direction: column;
+    // display: grid;
+    // grid-auto-flow: row;
+    // grid-template-areas: "header header" "search search" "table options";
+    // grid-template-columns: 1fr auto;
+    height: fit-content;
 
     // General Styles
     button, input, select {
@@ -23,36 +28,70 @@ export default Styled.div`
     }
 
     // Specific Styles
-    .header {
+    .menu-bar {
+        align-items: center;
         display: grid;
-        grid-auto-flow: row;
+        grid-auto-flow: column;
         grid-gap: 1rem;
-        .path {font-size: 1.8rem;}
-        .table-info {
-            display: flex;
-            justify-content: space-between;
-            .table-name {
-                font-size: 1.8rem;
-                font-weight: 1000;
-            }
-            .statistics {
-                font-size: 1.6rem;
-                display: grid;
-                grid-auto-flow: column;
-                grid-gap: 1rem;
-                .value {font-weight: 1000}
+        height: 25px;
+        padding: 0 1rem;
+        width: fit-content;
+        .menu {
+            .menu-name {font-size: 1.8rem}
+            .menu-options {
+                background-color: #fff;
+                box-shadow: 0 0 2px 0px rgba(0,0,0,.42);
+                display: flex;
+                flex-direction: column;
+                padding: 1rem 0;
+                position: absolute;
+                .option {
+                    align-items: center;
+                    cursor: pointer;
+                    color: #000;
+                    display: flex;
+                    font-size: 1.6rem;
+                    height: 25px;
+                    justify-content: space-between;
+                    padding: 0.75rem 1.25rem;
+                    &:hover {background-color: #ccc}
+                    .option-name {min-width: 75px}
+                    .option-hotkey {
+                        color: #666;
+                        font-size: 1.4rem;
+                        font-weight: 700;
+                    }
+                }
             }
         }
     }
-    .table-options {
+    .table-search {
         align-items: center;
         background-color: #222;
         display: flex;
+        grid-area: search;
         height: 35px;
         width: 100%;
+        .menu-vertical {
+            background-color: #222;
+            display: none;
+            grid-auto-flow: row;
+            grid-gap: 0.5rem;
+            position: absolute;
+            &.active {display: grid}
+            .menu-option {
+                text-align: left;
+                padding: 0.5rem 1rem;
+                &:hover{
+                    background-color: #ccc;
+                    color: #222;
+                }
+            }
+        }
     }
     .table {
         display: flex;
+        grid-area: table;
         table {
             width: 100%;
             font-size: 1.6rem;
